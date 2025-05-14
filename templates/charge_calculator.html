@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+{% block title %}What Should I Charge? - TLC Business Solutions{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1 class="text-center">What Should I Charge?</h1>
+        <p class="lead text-center">Calculate your ideal hourly rate based on your business costs and profit goals</p>
+    </div>
+</div>
+<div class="container mt-5 mb-5">    
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4 class="mb-3">What should you charge for labour in your service based business?</h4>
+            <p class="lead mb-4">This calculator lets you calculate a rate per hour that will cover all your overheads and expenses and leave enough to generate a profit you desire.</p>
+        </div>
+    </div>
+
+    <!-- Success message removed since we now redirect to results page -->
+
+    {% if results and not results.calculation_success %}
+    <div class="alert alert-danger">
+        <strong>Error:</strong> There was a problem with the calculation.
+    </div>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="{{ url_for('charge_calculator') }}">
+                <h4>Business Overheads</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Annual Rent/Mortgage</label>
+                            <input type="number" name="rent" class="form-control" value="{{ form_data.rent if form_data else '' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Utilities</label>
+                            <input type="number" name="utilities" class="form-control" value="{{ form_data.utilities if form_data else '' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Insurance</label>
+                            <input type="number" name="insurance" class="form-control" value="{{ form_data.insurance if form_data else '' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Office Expenses</label>
+                            <input type="number" name="office_expenses" class="form-control" value="{{ form_data.office_expenses if form_data else '' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Marketing</label>
+                            <input type="number" name="marketing" class="form-control" value="{{ form_data.marketing if form_data else '' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Vehicle Expenses</label>
+                            <input type="number" name="vehicle_expenses" class="form-control" value="{{ form_data.vehicle_expenses if form_data else '' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Equipment & Maintenance</label>
+                            <input type="number" name="equipment" class="form-control" value="{{ form_data.equipment if form_data else '' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Software & Subscriptions</label>
+                            <input type="number" name="software_subscriptions" class="form-control" value="{{ form_data.software_subscriptions if form_data else '' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Professional Services</label>
+                            <input type="number" name="professional_services" class="form-control" value="{{ form_data.professional_services if form_data else '' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Other Overheads</label>
+                            <input type="number" name="other_overheads" class="form-control" value="{{ form_data.other_overheads if form_data else '' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h4>Labor Costs</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Owner's Annual Salary</label>
+                            <input type="number" name="owner_annual_drawings" class="form-control" value="{{ form_data.owner_annual_drawings if form_data else '' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Owner's Billable Time (%)</label>
+                            <input type="number" name="owner_billable_hours_percent" class="form-control" value="{{ form_data.owner_billable_hours_percent if form_data else '50' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Number of Employees</label>
+                            <input type="number" name="employee_count" class="form-control" value="{{ form_data.employee_count if form_data else '0' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Average Employee Salary</label>
+                            <input type="number" name="average_employee_salary" class="form-control" value="{{ form_data.average_employee_salary if form_data else '' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Employee Billable Time (%)</label>
+                            <input type="number" name="employee_billable_hours_percent" class="form-control" value="{{ form_data.employee_billable_hours_percent if form_data else '70' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Annual Weeks Worked</label>
+                            <input type="number" name="annual_weeks_worked" class="form-control" value="{{ form_data.annual_weeks_worked if form_data else '48' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Weekly Working Hours</label>
+                            <input type="number" name="weekly_working_hours" class="form-control" value="{{ form_data.weekly_working_hours if form_data else '40' }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Target Profit Margin (%)</label>
+                            <input type="number" name="profit_margin_percent" class="form-control" value="{{ form_data.profit_margin_percent if form_data else '20' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>OR Annual Profit Target</label>
+                            <input type="number" name="annual_profit_target" class="form-control" value="{{ form_data.annual_profit_target if form_data else '0' }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4 mb-3">
+                    <button type="submit" class="btn btn-primary btn-lg">Calculate Charge Rate</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Results removed since we now redirect to a dedicated results page -->
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Test Images{% endblock %}
+
+{% block content %}
+<div style="padding: 2rem;">
+    <h1>ServiceM8 Image Test</h1>
+    
+    <h2>Direct Image Tests</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+            <h3>Jobs Map View</h3>
+            <img src="{{ url_for('static', filename='images/ServiceM8_Jobs_Map_View.png') }}" alt="ServiceM8 Jobs Map View" style="max-width: 400px;">
+        </div>
+        
+        <div>
+            <h3>My Schedule</h3>
+            <img src="{{ url_for('static', filename='images/ServiceM8_My_Schedule.png') }}" alt="ServiceM8 My Schedule" style="max-width: 400px;">
+        </div>
+        
+        <div>
+            <h3>Checklists</h3>
+            <img src="{{ url_for('static', filename='images/ServiceM8_Checklists.png') }}" alt="ServiceM8 Checklists" style="max-width: 400px;">
+        </div>
+    </div>
+    
+    <h2>Logo Tests</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div>
+            <h3>Horizontal Logo</h3>
+            <img src="{{ url_for('static', filename='images/ServiceM8_Logo_Horizontal.png') }}" alt="ServiceM8 Logo Horizontal" style="max-width: 300px;">
+        </div>
+        
+        <div>
+            <h3>Vertical Logo</h3>
+            <img src="{{ url_for('static', filename='images/ServiceM8_Logo_Vertical.png') }}" alt="ServiceM8 Logo Vertical" style="max-width: 300px;">
+        </div>
+        
+        <div>
+            <h3>Partner Logo</h3>
+            <img src="{{ url_for('static', filename='images/ServiceM8_Certified_Partner_Email_Signature.png') }}" alt="ServiceM8 Partner Logo" style="max-width: 300px;">
+        </div>
+    </div>
+</div>
+{% endblock %}

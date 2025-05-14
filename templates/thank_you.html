@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Thank You - TLC Business Solutions{% endblock %}
+
+{% block content %}
+<!-- Thank You Section -->
+<section class="thank-you">
+    <div class="container">
+        <i class="fas fa-check-circle fade-in" style="font-size: 4rem; color: var(--primary-color); margin-bottom: 1.5rem;"></i>
+        
+        <h1 class="fade-in">Thank You, {{ name }}!</h1>
+        
+        <p class="fade-in" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
+            We've received your message and appreciate your interest in TLC Business Solutions. One of our automation specialists will contact you within 24 hours to discuss how we can help transform your business.
+        </p>
+        
+        <div class="fade-in">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Return to Home</a>
+        </div>
+        
+        <div class="fade-in" style="margin-top: 4rem; padding: 2rem; background-color: #f9f9f9; border-radius: var(--border-radius); max-width: 700px; margin-left: auto; margin-right: auto;">
+            <h3>What's Next?</h3>
+            <ol style="text-align: left; padding-left: 1.5rem; margin-top: 1rem;">
+                <li style="margin-bottom: 1rem;">Our team will review your information</li>
+                <li style="margin-bottom: 1rem;">We'll reach out to schedule an initial consultation</li>
+                <li style="margin-bottom: 1rem;">We'll discuss your business needs and recommend solutions</li>
+                <li>Together, we'll develop a plan to automate and grow your business</li>
+            </ol>
+        </div>
+    </div>
+</section>
+{% endblock %}

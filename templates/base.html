@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TLC Business Solutions - Service Business Automation{% endblock %}</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="TLC Business Solutions helps service businesses automate their processes, reduce stress, and increase profits through customized solutions.">
+    <meta name="keywords" content="business automation, service business, ServiceM8, automation, business efficiency">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="TLC Business Solutions Logo">
+            </a>
+        </div>
+        <!-- Original navigation menu -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}" {% if active_page == 'home' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{{ url_for('features') }}" {% if active_page == 'features' %}class="active"{% endif %}>Features</a></li>
+                <li><a href="{{ url_for('financial_snapshot') }}" {% if active_page == 'financial_snapshot' %}class="active"{% endif %}>Financial Snapshot</a></li>
+                <li><a href="{{ url_for('charge_calculator') }}" {% if active_page == 'calculator' %}class="active"{% endif %}>What Should I Charge?</a></li>
+                <li><a href="{{ url_for('about') }}" {% if active_page == 'about' %}class="active"{% endif %}>About</a></li>
+                <li><a href="{{ url_for('contact') }}" {% if active_page == 'contact' %}class="active"{% endif %}>Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Flash Messages -->
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% if error_message %}
+        <section class="container" style="padding-top: 150px; text-align: center;">
+            <h1>{{ title|default('Error') }}</h1>
+            <p>{{ error_message }}</p>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Return to Home</a>
+        </section>
+        {% endif %}
+        {% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="{{ url_for('static', filename='images/logo-footer.png') }}" alt="TLC Business Solutions Logo">
+                    </div>
+                    <p>Helping service businesses automate their operations, increase efficiency, and grow their profits.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('features') }}">Features</a></li>
+                        <li><a href="{{ url_for('financial_snapshot') }}">Financial Snapshot</a></li>
+                        <li><a href="{{ url_for('charge_calculator') }}">What Should I Charge?</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="{{ url_for('features') }}#servicem8">ServiceM8 Setup</a></li>
+                        <li><a href="{{ url_for('features') }}#automation">Automation</a></li>
+                        <li><a href="{{ url_for('features') }}#coaching">Business Coaching</a></li>
+                        <li><a href="{{ url_for('features') }}#support">Subscription Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@tlcbusinesssolutions.co.uk">info@tlcbusinesssolutions.co.uk</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+447700170842">07700 170842</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 TLC Business Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+    
+    <!-- Chat Widget -->
+    <script 
+        src="https://widgets.leadconnectorhq.com/loader.js"  
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" 
+        data-widget-id="675dd8a31f70dc10f9fac127">
+    </script>
+</body>
+</html>

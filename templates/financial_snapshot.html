@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+
+{% block title %}Financial Health Snapshot - TLC Business Solutions{% endblock %}
+
+{% block content %}
+<!-- Financial Snapshot Hero Section -->
+<section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f');">
+    <div class="container">
+        <h1 class="fade-in">One-Click Financial Health Snapshot</h1>
+        <p class="fade-in">Get instant insights into your business financial health - no spreadsheets required</p>
+    </div>
+</section>
+
+<section class="financial-snapshot">
+    <div class="container">
+        {% if not show_results %}
+        <div class="snapshot-intro fade-in">
+            <h2>How Healthy Is Your Business Money?</h2>
+            <p>Just enter a few simple numbers about your business money and we'll instantly show you where you stand. No complicated accounting knowledge needed!</p>
+            
+            <div class="snapshot-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Quick Check</h3>
+                    <p>See how your business is doing financially in less than a minute.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Simple Answers</h3>
+                    <p>Get easy-to-understand explanations about your money situation.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Clear Next Steps</h3>
+                    <p>Know exactly what to do to improve your business finances.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="snapshot-form-container fade-in">
+            <h2>Enter Your Numbers</h2>
+            <p>Use monthly averages for the most accurate results. All information is processed locally and never stored.</p>
+            
+            <form class="snapshot-form" method="POST" action="{{ url_for('financial_snapshot') }}">
+                <div class="form-group">
+                    <label for="monthly_revenue">Money Coming In Each Month (£)</label>
+                    <small class="form-text">Your average monthly income before any expenses</small>
+                    <input type="number" id="monthly_revenue" name="monthly_revenue" class="form-control" required min="0" step="0.01" placeholder="e.g. 10000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="monthly_expenses">Money Going Out Each Month (£)</label>
+                    <small class="form-text">Your average monthly costs (staff, rent, materials, etc.)</small>
+                    <input type="number" id="monthly_expenses" name="monthly_expenses" class="form-control" required min="0" step="0.01" placeholder="e.g. 7000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="outstanding_invoices">Money Clients Owe You (£)</label>
+                    <small class="form-text">Total amount of unpaid customer invoices</small>
+                    <input type="number" id="outstanding_invoices" name="outstanding_invoices" class="form-control" required min="0" step="0.01" placeholder="e.g. 5000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="accounts_payable">Money You Owe Others (£)</label>
+                    <small class="form-text">Total bills and invoices you still need to pay</small>
+                    <input type="number" id="accounts_payable" name="accounts_payable" class="form-control" required min="0" step="0.01" placeholder="e.g. 3000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="cash_reserves">Money in the Bank (£)</label>
+                    <small class="form-text">Total cash available in your business accounts</small>
+                    <input type="number" id="cash_reserves" name="cash_reserves" class="form-control" required min="0" step="0.01" placeholder="e.g. 15000">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-block">Generate My Financial Snapshot</button>
+                </div>
+            </form>
+        </div>
+        {% else %}
+        <!-- Results Section -->
+        <div class="snapshot-results fade-in">
+            <h2>Your Financial Health Snapshot</h2>
+            
+            <div class="overall-score">
+                <div class="score-gauge">
+                    <div class="score-value" style="--score: {{ snapshot_results.health_score }}%;">
+                        <span>{{ "%.1f"|format(snapshot_results.health_score) }}%</span>
+                    </div>
+                </div>
+                <h3>Overall Financial Health</h3>
+                <p>
+                    {% if snapshot_results.health_score >= 80 %}
+                    Your business shows strong financial health across key indicators.
+                    {% elif snapshot_results.health_score >= 60 %}
+                    Your business has good financial health with some areas for improvement.
+                    {% elif snapshot_results.health_score >= 40 %}
+                    Your business shows moderate financial health with several areas needing attention.
+                    {% else %}
+                    Your business shows concerning financial health indicators that need immediate attention.
+                    {% endif %}
+                </p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Money Kept After Expenses</h3>
+                    <div class="metric-value {% if snapshot_results.profit_health == 'Healthy' %}healthy{% elif snapshot_results.profit_health == 'Caution' %}caution{% else %}attention{% endif %}">
+                        {{ "%.1f"|format(snapshot_results.profit_margin) }}%
+                    </div>
+                    <div class="metric-status">{{ snapshot_results.profit_health }}</div>
+                    <p>
+                        {% if snapshot_results.profit_margin >= 20 %}
+                        You're keeping a good portion of the money your business makes! This shows your prices and costs are well-managed.
+                        {% elif snapshot_results.profit_margin >= 10 %}
+                        You're keeping some money, but there's room to improve by increasing prices or cutting costs.
+                        {% else %}
+                        You're keeping very little of your income - you need to look at your prices and find ways to reduce costs.
+                        {% endif %}
+                    </p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Monthly Balance</h3>
+                    <div class="metric-value {% if snapshot_results.cash_flow_health == 'Healthy' %}healthy{% elif snapshot_results.cash_flow_health == 'Caution' %}caution{% else %}attention{% endif %}">
+                        £{{ "%.2f"|format(snapshot_results.cash_flow) }}
+                    </div>
+                    <div class="metric-status">{{ snapshot_results.cash_flow_health }}</div>
+                    <p>
+                        {% if snapshot_results.cash_flow > 0 %}
+                        Great! You have more money coming in than going out each month.
+                        {% else %}
+                        Warning: You're spending more than you earn each month, which can't continue long-term.
+                        {% endif %}
+                    </p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>How Long Your Money Would Last</h3>
+                    <div class="metric-value {% if snapshot_results.runway_health == 'Healthy' %}healthy{% elif snapshot_results.runway_health == 'Caution' %}caution{% else %}attention{% endif %}">
+                        {{ "%.1f"|format(snapshot_results.runway_months) }} months
+                    </div>
+                    <div class="metric-status">{{ snapshot_results.runway_health }}</div>
+                    <p>
+                        {% if snapshot_results.runway_months >= 3 %}
+                        Your savings could cover {{ "%.1f"|format(snapshot_results.runway_months) }} months of expenses if income stopped - that's good financial security!
+                        {% elif snapshot_results.runway_months >= 1 %}
+                        Your savings would only last {{ "%.1f"|format(snapshot_results.runway_months) }} months if income stopped - try to build up more savings.
+                        {% else %}
+                        Critical: Your savings would last less than a month if income stopped - you need to build emergency funds quickly.
+                        {% endif %}
+                    </p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Client Payment Health</h3>
+                    <div class="metric-value {% if snapshot_results.receivable_health == 'Healthy' %}healthy{% elif snapshot_results.receivable_health == 'Caution' %}caution{% else %}attention{% endif %}">
+                        {{ "%.1f"|format(snapshot_results.accounts_receivable_ratio) }}x
+                    </div>
+                    <div class="metric-status">{{ snapshot_results.receivable_health }}</div>
+                    <p>
+                        {% if snapshot_results.accounts_receivable_ratio <= 1 %}
+                        The money clients owe you is less than one month's income - excellent!
+                        {% elif snapshot_results.accounts_receivable_ratio <= 2 %}
+                        The money clients owe you equals {{ "%.1f"|format(snapshot_results.accounts_receivable_ratio) }} months of income - getting paid faster would help your cash flow.
+                        {% else %}
+                        You have too much money tied up in unpaid client invoices - urgent need to improve how quickly clients pay you.
+                        {% endif %}
+                    </p>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Money Owed vs Income</h3>
+                    <div class="metric-value {% if snapshot_results.debt_health == 'Healthy' %}healthy{% elif snapshot_results.debt_health == 'Caution' %}caution{% else %}attention{% endif %}">
+                        {{ "%.1f"|format(snapshot_results.debt_to_income) }}x
+                    </div>
+                    <div class="metric-status">{{ snapshot_results.debt_health }}</div>
+                    <p>
+                        {% if snapshot_results.debt_to_income <= 0.5 %}
+                        The money you owe to others is low compared to your monthly income - strong position!
+                        {% elif snapshot_results.debt_to_income <= 1 %}
+                        The money you owe to others is about the same as your monthly income - manageable but keep an eye on it.
+                        {% else %}
+                        You owe more than you make in a month - this may cause cash flow problems if not managed carefully.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="action-recommendations">
+                <h3>What You Should Do Next</h3>
+                <ul>
+                    {% if snapshot_results.profit_margin < 20 %}
+                    <li>Look at your pricing - can you charge more or find ways to reduce your costs?</li>
+                    {% endif %}
+                    
+                    {% if snapshot_results.cash_flow <= 0 %}
+                    <li>You're spending more than you make - find ways to increase income or cut expenses</li>
+                    {% endif %}
+                    
+                    {% if snapshot_results.runway_months < 3 %}
+                    <li>Start saving more money as a safety net - aim for enough to cover 3 months of expenses</li>
+                    {% endif %}
+                    
+                    {% if snapshot_results.accounts_receivable_ratio > 1 %}
+                    <li>Find ways to get paid faster - maybe offer discounts for early payment</li>
+                    {% endif %}
+                    
+                    {% if snapshot_results.debt_to_income > 0.5 %}
+                    <li>Work on reducing what you owe to suppliers and other businesses</li>
+                    {% endif %}
+                    
+                    <li>Check these numbers every 3 months to see how you're doing</li>
+                </ul>
+            </div>
+            
+            <div class="results-cta">
+                <a href="{{ url_for('financial_snapshot') }}" class="btn btn-secondary">Generate New Snapshot</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Expert Financial Guidance</a>
+            </div>
+            
+            <div class="results-disclaimer">
+                <p><strong>Note:</strong> This snapshot provides a simplified analysis based on the data you provided. For comprehensive financial advice specific to your business, please contact our team.</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="fade-in">Want More Detailed Financial Insights?</h2>
+            <p class="fade-in">
+                Our team can help you implement automated financial tracking, create custom dashboards, and develop financial strategies that grow your business.
+            </p>
+            <a href="{{ url_for('contact') }}" class="btn btn-primary fade-in">Let's Talk About Your Business</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simple form validation
+        const form = document.querySelector('.snapshot-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const inputs = form.querySelectorAll('input[type="number"]');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    if (input.value === '' || parseFloat(input.value) < 0) {
+                        isValid = false;
+                        input.classList.add('error');
+                    } else {
+                        input.classList.remove('error');
+                    }
+                });
+                
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Please fill in all fields with valid positive numbers.');
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

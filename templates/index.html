@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+
+{% block title %}TLC Business Solutions - Run Your Service Business Like a Machine{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1 class="fade-in">Run Your Service Business Like a Machine</h1>
+        <p class="fade-in">Less Stress. More Freedom. Higher Profits.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary fade-in">Let's Build Your Automated Business</a>
+    </div>
+</section>
+
+<!-- "Imagine This" Section -->
+<section id="imagine" class="imagine">
+    <div class="container">
+        <div class="imagine-content">
+            <h2 class="fade-in">Imagine This</h2>
+            <p class="fade-in">
+                Your business runs itself. Clients book online, jobs are scheduled automatically, and invoices go out without lifting a finger. Your team knows exactly what to do, when to do it, and how to do it best. While your competitors are drowning in paperwork and phone calls, you're focused on growth and enjoying more time with your family.
+            </p>
+            <p class="fade-in">
+                No more late nights catching up on admin work. No more missed appointments or double-bookings. No more chasing payments or hunting for job details. Just a smoothly running business machine that generates consistent revenue while giving you back your freedom.
+            </p>
+            <a href="{{ url_for('features') }}" class="btn btn-secondary fade-in">Discover How</a>
+        </div>
+    </div>
+</section>
+
+<!-- "Who We Help" Section -->
+<section id="who-we-help" class="who-we-help">
+    <div class="container">
+        <h2 class="fade-in">Who We Help</h2>
+        <p class="fade-in">
+            We specialize in transforming service businesses through powerful automation and smart systems. Our solutions are perfect for:
+        </p>
+        
+        <div class="client-types">
+            <div class="client-type fade-in">
+                <div class="client-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Landscapers</h3>
+                <p>Schedule crews efficiently, track job progress, and invoice automatically.</p>
+            </div>
+            
+            <div class="client-type fade-in">
+                <div class="client-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Electricians</h3>
+                <p>Manage service calls, parts inventory, and customer follow-ups seamlessly.</p>
+            </div>
+            
+            <div class="client-type fade-in">
+                <div class="client-icon">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                <h3>Plumbers</h3>
+                <p>Streamline dispatch, capture job details and photos, and simplify billing.</p>
+            </div>
+            
+            <div class="client-type fade-in">
+                <div class="client-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Holiday Rentals</h3>
+                <p>Automate bookings, cleaning schedules, and guest communications effortlessly.</p>
+            </div>
+            
+            <div class="client-type fade-in">
+                <div class="client-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Car Sales</h3>
+                <p>Track inventory, manage customer relationships, and streamline paperwork.</p>
+            </div>
+            
+            <div class="client-type fade-in">
+                <div class="client-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Any Service Business</h3>
+                <p>If you want to automate processes and get more time back, we can help.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Promise Section -->
+<section id="promise" class="promise">
+    <div class="container">
+        <h2 class="fade-in">Our Promise</h2>
+        <p class="fade-in">
+            When you partner with TLC Business Solutions, we're committed to delivering tangible, transformative results for your business.
+        </p>
+        
+        <div class="promise-items">
+            <div class="promise-item fade-in">
+                <div class="promise-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>Simpler Operations</h3>
+                <p>Streamlined systems and automated workflows that eliminate complexity and confusion.</p>
+            </div>
+            
+            <div class="promise-item fade-in">
+                <div class="promise-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Higher Margins</h3>
+                <p>More efficient processes, reduced errors, and improved cash flow that boost your bottom line.</p>
+            </div>
+            
+            <div class="promise-item fade-in">
+                <div class="promise-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>More Time Freedom</h3>
+                <p>Automation that frees you from daily operational tasks so you can focus on what matters most.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI Automation Section -->
+<section id="ai-automation" class="ai-automation">
+    <div class="container">
+        <h2 class="fade-in">AI Automation for Service Businesses</h2>
+        <p class="fade-in">
+            Streamline your operations and elevate customer experiences with the latest in AI tools.
+        </p>
+        
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3>AI Chatbots</h3>
+                <p>Instantly respond to client messages, qualify leads, and answer common queries 24/7.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <h3>Voice AI</h3>
+                <p>Let clients speak to your business using voice assistants that feel like real conversations.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Workflow Automation</h3>
+                <p>Use smart AI triggers to send follow-ups, schedule jobs, and keep your admin tight.</p>
+            </div>
+        </div>
+        
+        <div class="text-center" style="margin-top: 3rem;">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary fade-in">Discover how AI can take your business to the next level – Book a Demo</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="fade-in">Ready to Transform Your Business?</h2>
+            <p class="fade-in">
+                Take the first step toward a more efficient, profitable, and freedom-giving business operation. Contact us today to explore how we can customize a solution for your specific needs.
+            </p>
+            <a href="{{ url_for('contact') }}" class="btn btn-primary fade-in">Let's Build Your Automated Business</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

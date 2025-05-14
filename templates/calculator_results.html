@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Charge Rate Results - TLC Business Solutions{% endblock %}
+
+{% block extra_head %}
+<style>
+    .results-container {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 4rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .results-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--primary-light) 100%);
+        opacity: 0.8;
+        z-index: -1;
+    }
+    
+    .result-card {
+        background-color: white;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        color: var(--secondary-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-result {
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .charge-rate-display {
+        font-size: 4rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin: 1rem 0;
+    }
+    
+    .result-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .result-section h3 {
+        color: var(--primary-dark);
+        border-bottom: 2px solid var(--primary-light);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .result-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .result-label {
+        font-weight: 500;
+    }
+    
+    .result-value {
+        font-weight: 700;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background-color: white;
+        color: var(--primary-dark);
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        margin-top: 2rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid white;
+    }
+    
+    .cta-button:hover {
+        background-color: transparent;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .results-footer {
+        text-align: center;
+        margin-top: 3rem;
+    }
+    
+    .results-note {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+        .charge-rate-display {
+            font-size: 3rem;
+        }
+        
+        .results-container {
+            padding: 2rem 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="results-container">
+        <div class="main-result">
+            <h2>Your Recommended Hourly Charge Rate</h2>
+            <div class="charge-rate-display">£{{ "%.2f"|format(results.hourly_charge_rate) }}</div>
+            <p>Based on your business costs, labor expenses, and profit goals</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="result-card">
+                    <div class="result-section">
+                        <h3>Business Costs</h3>
+                        <div class="result-row">
+                            <span class="result-label">Total Overheads:</span>
+                            <span class="result-value">£{{ "%.2f"|format(results.total_overheads) }}</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Total Labor Cost:</span>
+                            <span class="result-value">£{{ "%.2f"|format(results.total_labor_cost) }}</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Annual Profit Target:</span>
+                            <span class="result-value">£{{ "%.2f"|format(results.profit_amount) }}</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Total Annual Revenue Needed:</span>
+                            <span class="result-value">£{{ "%.2f"|format(results.total_revenue_needed) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="result-card">
+                    <div class="result-section">
+                        <h3>Billable Hours</h3>
+                        <div class="result-row">
+                            <span class="result-label">Owner Billable Hours:</span>
+                            <span class="result-value">{{ "%.0f"|format(results.owner_billable_hours) }} hours</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Employee Billable Hours:</span>
+                            <span class="result-value">{{ "%.0f"|format(results.employee_billable_hours) }} hours</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Total Annual Billable Hours:</span>
+                            <span class="result-value">{{ "%.0f"|format(results.total_billable_hours) }} hours</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Resulting Hourly Rate:</span>
+                            <span class="result-value">£{{ "%.2f"|format(results.hourly_charge_rate) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results-note">
+            <p>This calculated rate ensures all your business costs are covered and you achieve your desired profit. Remember that this is a baseline - you may need to adjust depending on your market, service complexity, and competition.</p>
+        </div>
+        
+        <div class="results-footer">
+            <p>Want expert help implementing this rate and optimizing your business?</p>
+            <a href="{{ url_for('contact') }}" class="cta-button">Need Help With Your Business?</a>
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <form action="{{ url_for('charge_calculator') }}" method="post">
+            <!-- Pass all the form values back to the calculator if the user wants to make adjustments -->
+            {% for key, value in form_data.items() %}
+                <input type="hidden" name="{{ key }}" value="{{ value }}">
+            {% endfor %}
+            <button type="submit" class="btn btn-outline-primary">Recalculate with Current Values</button>
+        </form>
+        <a href="{{ url_for('charge_calculator') }}" class="btn btn-outline-secondary mt-2">Start New Calculation</a>
+    </div>
+</div>
+{% endblock %}

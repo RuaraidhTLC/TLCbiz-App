@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - TLC Business Solutions{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1648134859211-4a1b57575f4e');">
+    <div class="container">
+        <h1 class="fade-in">Contact Us</h1>
+        <p class="fade-in">Let's discuss how we can help automate and grow your business</p>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section style="padding-top: 60px; padding-bottom: 80px;">
+    <div class="container">
+        <div class="row" style="display: flex; flex-wrap: wrap; gap: 3rem;">
+            <div class="contact-info fade-in" style="flex: 1; min-width: 300px;">
+                <h2>Get In Touch</h2>
+                <p>
+                    Ready to take the first step toward a more automated, efficient business? Fill out the form and we'll get back to you within 24 hours to schedule a consultation.
+                </p>
+
+                <div style="margin-top: 2rem;">
+                    <h3>Our Process</h3>
+                    <ol style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Initial Consultation</strong><br>
+                            We'll discuss your business, challenges, and goals to understand what you need.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Solution Design</strong><br>
+                            We'll create a custom automation plan tailored specifically to your business.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Implementation</strong><br>
+                            We'll set up and configure your systems, ensuring everything works seamlessly.
+                        </li>
+                        <li>
+                            <strong>Training & Support</strong><br>
+                            We'll train your team and provide ongoing support to ensure long-term success.
+                        </li>
+                    </ol>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <h3>Contact Information</h3>
+                    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                        <li style="margin-bottom: 1rem;">
+                            <i class="fas fa-envelope" style="width: 20px; color: var(--primary-color);"></i>
+                            <a href="mailto:info@tlcbusinesssolutions.co.uk">info@tlcbusinesssolutions.co.uk</a>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <i class="fas fa-phone" style="width: 20px; color: var(--primary-color);"></i>
+                            <a href="tel:+447700170842">07700 170842</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt" style="width: 20px; color: var(--primary-color);"></i>
+                            Glenshellach Business Park<br>
+                            <span style="margin-left: 24px;">Oban, PA34 4RY</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper fade-in" style="flex: 1; min-width: 300px;">
+                <iframe 
+                    src="https://api.leadconnectorhq.com/widget/form/HhBZUmEeTlXs7iy8pism" 
+                    style="width:100%;height:100%;border:none;border-radius:var(--border-radius);"
+                    id="inline-HhBZUmEeTlXs7iy8pism" 
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-trigger-value=""
+                    data-activation-type="alwaysActivated"
+                    data-activation-value=""
+                    data-deactivation-type="neverDeactivate"
+                    data-deactivation-value=""
+                    data-form-name="Website Contact Form"
+                    data-height="700"
+                    data-layout-iframe-id="inline-HhBZUmEeTlXs7iy8pism"
+                    data-form-id="HhBZUmEeTlXs7iy8pism"
+                >
+                </iframe>
+                <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 80px;">
+    <div class="container">
+        <h2 class="text-center fade-in">Frequently Asked Questions</h2>
+
+        <div class="feature-grid" style="margin-top: 3rem;">
+            <div class="feature-card fade-in">
+                <h3>How long does implementation typically take?</h3>
+                <p>Most implementations take 2-4 weeks from start to finish, depending on the complexity of your business and the scope of automation needed. We work in phases to ensure minimal disruption to your operations.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <h3>What if my team isn't tech-savvy?</h3>
+                <p>No problem! We design our solutions to be user-friendly and provide comprehensive training for your entire team. We also offer ongoing support to ensure everyone feels confident using the new systems.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <h3>How much does it cost?</h3>
+                <p>Our services are customized to each business, so pricing varies based on your specific needs. After our initial consultation, we'll provide a detailed proposal with transparent pricing for all services.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <h3>What if I already have some systems in place?</h3>
+                <p>We're happy to work with your existing systems and can often integrate them into a more comprehensive automation solution. Our goal is to build on what's working while filling in the gaps.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

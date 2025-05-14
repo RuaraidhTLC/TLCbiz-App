@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+
+{% block title %}Features & Services - TLC Business Solutions{% endblock %}
+
+{% block content %}
+<!-- Features Hero Section -->
+<section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1499549549616-57173fc0c15b');">
+    <div class="container">
+        <h1 class="fade-in">Our Services & Features</h1>
+        <p class="fade-in">Powerful automation solutions designed for service businesses</p>
+    </div>
+</section>
+
+<!-- ServiceM8 Showcase Images -->
+<section style="background-color: #f5f5f5; padding: 2rem 0; border-bottom: 1px solid #e0e0e0;">
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <div style="flex: 1; min-width: 300px; max-width: 500px; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);">
+                <img src="{{ url_for('static', filename='images/ServiceM8_Jobs_Map_View.png') }}" alt="ServiceM8 Jobs Map View" style="width: 100%; height: auto; display: block;">
+            </div>
+            <div style="flex: 1; min-width: 300px; max-width: 500px; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);">
+                <img src="{{ url_for('static', filename='images/ServiceM8_My_Schedule.png') }}" alt="ServiceM8 Mobile Schedule View" style="width: 100%; height: auto; display: block;">
+            </div>
+            <div style="flex: 1; min-width: 300px; max-width: 500px; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);">
+                <img src="{{ url_for('static', filename='images/ServiceM8_Checklists.png') }}" alt="ServiceM8 Checklists" style="width: 100%; height: auto; display: block;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ServiceM8 Setup Section -->
+<section id="servicem8" class="features servicem8-section">
+    <div class="container">
+        <div class="servicem8-header">
+            <h2 class="fade-in">ServiceM8 Setup & Customization</h2>
+            <div class="servicem8-logo fade-in">
+                <img src="{{ url_for('static', filename='images/ServiceM8_Logo_Horizontal.png') }}" alt="ServiceM8 Logo" style="max-width: 300px; height: auto;">
+            </div>
+        </div>
+        
+        <div class="servicem8-intro fade-in">
+            <h3>Transform How You Run Your Service Business</h3>
+            <p>
+                ServiceM8 is powerful job management software designed specifically for service businesses. 
+                As an official ServiceM8 Partner, we help you fully implement and customize this platform to match your specific business needs.
+            </p>
+        </div>
+        
+        <div class="servicem8-benefits fade-in">
+            <h3>Key Benefits of ServiceM8</h3>
+            <ul class="benefits-list">
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Save Time:</strong> Reduce paperwork and admin time by up to 80%
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Get Paid Faster:</strong> Process payments and send invoices directly from the field
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Improve Customer Experience:</strong> Send automated updates and appointment reminders
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Grow Your Business:</strong> Handle more jobs without adding administrative overhead
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <strong>Work From Anywhere:</strong> Access your business from any device, anywhere, anytime
+                </li>
+            </ul>
+        </div>
+        
+        <div class="servicem8-showcase fade-in">
+            <h3>Powerful Job Management for Service Businesses</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem 0;">
+                <div>
+                    <img src="{{ url_for('static', filename='images/ServiceM8_Logo_Vertical.png') }}" alt="ServiceM8 Logo" style="max-width: 150px; height: auto;">
+                </div>
+                <div>
+                    <img src="{{ url_for('static', filename='images/ServiceM8_Certified_Partner_Email_Signature.png') }}" alt="ServiceM8 Certified Partner" style="max-width: 200px; height: auto;">
+                </div>
+            </div>
+        </div>
+        
+        <div class="servicem8-services fade-in">
+            <h3>Our ServiceM8 Services</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4>Complete System Setup</h4>
+                    <p>We handle the entire ServiceM8 implementation process, from account creation to staff training. You'll be up and running quickly with minimal disruption to your business.</p>
+                    <p class="price">Starting from £299</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h4>Custom Workflows</h4>
+                    <p>We design job workflows tailored to your specific business processes, ensuring everything from scheduling to invoicing follows your preferred methodology.</p>
+                    <p class="price">Starting from £199</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>Form & Template Design</h4>
+                    <p>Custom-designed job forms, quote templates, and invoices that match your branding and capture all the information you need from every job.</p>
+                    <p class="price">Starting from £20</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4>Staff Training & Support</h4>
+                    <p>Comprehensive training for you and your team on how to effectively use ServiceM8, with ongoing support to answer questions as they arise.</p>
+                    <p class="price">Monthly Packages Available</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="servicem8-cta fade-in">
+            <h3>How to Get Started with ServiceM8</h3>
+            <ol class="steps-list">
+                <li>Contact us for a free consultation to discuss your business needs</li>
+                <li>We'll create a customized implementation plan for your business</li>
+                <li>Sign up to ServiceM8 using the referral link below (https://sm8.link/viz5edv)</li>
+                <li>We'll help you set up and customize your ServiceM8 account</li>
+                <li>Start managing your jobs more efficiently!</li>
+            </ol>
+            
+            <div class="servicem8-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Started with ServiceM8</a>
+                <a href="https://sm8.link/viz5edv" class="btn btn-secondary">Use Our Referral Link</a>
+            </div>
+            
+            <p class="servicem8-note">
+                <strong>Note:</strong> By signing up through our referral link, you'll be ensuring that we're recognized as your ServiceM8 partner, allowing us to provide you with the best possible support.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Automation Section -->
+<section id="automation" class="features" style="background-color: white;">
+    <div class="container">
+        <h2 class="fade-in">Business Automation Solutions</h2>
+        <p class="fade-in">
+            Our automation solutions extend beyond basic software setup to create true "set and forget" systems that run your business with minimal manual intervention.
+        </p>
+        
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Scheduling Automation</h3>
+                <p>Implement online booking systems, automated appointment reminders, and intelligent scheduling that maximizes your team's efficiency and minimizes travel time.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-comments-dollar"></i>
+                </div>
+                <h3>Payment Automation</h3>
+                <p>Streamline your invoicing and payment collection with automatic invoice generation, payment processing, and follow-ups for overdue accounts.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Client Communication</h3>
+                <p>Set up automated text messages, emails, and notifications to keep clients informed at every stage of the service process without manual effort.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3>Integration Services</h3>
+                <p>Connect your business systems - from accounting software to marketing tools - creating a seamless flow of information across your entire operation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Coaching Section -->
+<section id="coaching" class="features">
+    <div class="container">
+        <h2 class="fade-in">Business Coaching & Training</h2>
+        <p class="fade-in">
+            Technology alone isn't enough. Our coaching and training programs ensure you and your team fully leverage your new systems to transform your business.
+        </p>
+        
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3>Staff Training</h3>
+                <p>Comprehensive training sessions for your entire team to ensure everyone understands how to use the new systems effectively in their daily work.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Business Owner Coaching</h3>
+                <p>One-on-one coaching focused on helping you transition from working in your business to working on your business using your new automated systems.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Process Documentation</h3>
+                <p>We create clear documentation and standard operating procedures so your business can maintain consistency even as you grow and add new team members.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support Section -->
+<section id="support" class="features" style="background-color: white;">
+    <div class="container">
+        <h2 class="fade-in">Ongoing Support & Optimization</h2>
+        <p class="fade-in">
+            Our relationship doesn't end after implementation. We offer ongoing support to ensure your systems continue to evolve with your business.
+        </p>
+        
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Priority Support</h3>
+                <p>Get fast, responsive help when you need it with our subscription support packages. We're here to resolve issues quickly so your business keeps running smoothly.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Performance Reviews</h3>
+                <p>Regular check-ins to analyze your system's performance, identify bottlenecks, and implement improvements that keep your automation running at peak efficiency.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>System Updates</h3>
+                <p>We help you stay current with software updates, new features, and emerging technologies that can further enhance your business automation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="fade-in">Ready to Start Automating?</h2>
+            <p class="fade-in">
+                Contact us today to discuss your business needs and discover how our services can transform your operations.
+            </p>
+            <a href="{{ url_for('contact') }}" class="btn btn-primary fade-in">Let's Talk About Your Business</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

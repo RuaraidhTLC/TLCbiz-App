@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="180" viewBox="0 0 350 180">
+  <!-- TLC Logo with proper proportions based on actual logo -->
+  <!-- Black Frame -->
+  <path d="M10,10 L10,130 L100,130 L100,90 L340,90 L340,10 Z" fill="none" stroke="#000000" stroke-width="6"/>
+  
+  <!-- TLC Text -->
+  <text x="155" y="65" font-family="Arial, sans-serif" font-weight="bold" font-size="72" fill="#000000">TLC</text>
+  
+  <!-- BUSINESS SOLUTIONS text -->
+  <text x="65" y="115" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#00BCD4">BUSINESS SOLUTIONS</text>
+</svg>

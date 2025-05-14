@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - TLC Business Solutions{% endblock %}
+
+{% block content %}
+<!-- About Hero Section -->
+<section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c');">
+    <div class="container">
+        <h1 class="fade-in">About TLC Business Solutions</h1>
+        <p class="fade-in">Our story, our mission, and our commitment to your success</p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-section">
+            <div class="about-content fade-in">
+                <h2>Our Story</h2>
+                <p>
+                    TLC Business Solutions was born from a simple observation: service businesses are often run by skilled tradespeople and professionals who excel at their craft but struggle with the administrative and operational aspects of running a business.
+                </p>
+                <p>
+                    After years of working in various service industries and witnessing firsthand the challenges of managing schedules, staff, invoicing, and customer communications, we recognized that the right technology, properly implemented, could transform these businesses.
+                </p>
+                <p>
+                    We set out to create a consultancy that bridges the gap between powerful business software and the practical, day-to-day needs of service businesses. Our approach combines deep technical expertise with real-world understanding of service business operations.
+                </p>
+            </div>
+            
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1513530534585-c7b1394c6d51" alt="TLC Business Solutions Team">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="about-section">
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Team collaboration">
+            </div>
+            
+            <div class="about-content fade-in">
+                <h2>Our Mission</h2>
+                <p>
+                    We believe that service businesses deserve technology that truly serves them - not systems that create more work or complexity. Our mission is to liberate business owners from administrative burden through intelligent automation.
+                </p>
+                <p>
+                    We're dedicated to creating business systems that:
+                </p>
+                <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+                    <li>Run reliably with minimal oversight</li>
+                    <li>Adapt to your unique business processes</li>
+                    <li>Scale smoothly as your business grows</li>
+                    <li>Are simple for your team to learn and use</li>
+                    <li>Deliver measurable improvements to your bottom line</li>
+                </ul>
+                <p>
+                    Above all, we measure our success by the freedom and growth we help create for our clients.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Expertise Section -->
+<section>
+    <div class="container">
+        <div class="about-section">
+            <div class="about-content fade-in">
+                <h2>Our Expertise</h2>
+                <p>
+                    Our team brings together a unique combination of skills that make us ideally suited to serve service businesses:
+                </p>
+                <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+                    <li><strong>Service Industry Experience:</strong> We've worked in and with numerous service businesses, understanding the unique challenges and requirements of field service operations.</li>
+                    <li><strong>Technical Proficiency:</strong> We're certified experts in ServiceM8 and related business automation tools, with the skills to customize these platforms to fit your specific needs.</li>
+                    <li><strong>Business Process Design:</strong> We excel at mapping, optimizing, and automating complex business workflows to maximize efficiency.</li>
+                    <li><strong>Change Management:</strong> We know how to successfully implement new systems with minimal disruption and maximum adoption.</li>
+                </ul>
+                <p>
+                    This blend of practical experience and technical knowledge allows us to bridge the gap between powerful software capabilities and the practical realities of running a service business.
+                </p>
+            </div>
+            
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="Professional expertise">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Founder Section -->
+<section style="background-color: #fff;">
+    <div class="container">
+        <div class="about-section founder-section">
+            <div class="about-content fade-in">
+                <h2>Our Founder</h2>
+                <p>
+                    TLC Business Solutions was founded by Ruaraidh Neish, an entrepreneur with extensive experience in creating and managing successful businesses across multiple sectors. With a passion for automation and business efficiency, Ruaraidh has dedicated his career to helping service businesses streamline their operations and maximize their potential.
+                </p>
+                <p>
+                    As the creator of <a href="https://www.landscaperautomator.com" target="_blank">Landscaper Automator</a>, one of TLC Business Solutions' flagship programs, Ruaraidh has developed specialized expertise in helping landscaping businesses automate their processes, reduce administrative burden, and increase profitability. This program exemplifies our commitment to creating industry-specific solutions that address the unique challenges faced by different service businesses.
+                </p>
+                <p>
+                    Ruaraidh's entrepreneurial portfolio also includes:
+                </p>
+                <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem;">
+                    <li><a href="https://www.tlcspas.co.uk" target="_blank">TLC Spas</a> - Providing luxury hot tubs and swim spas with exceptional service across Scotland</li>
+                    <li><a href="https://www.tlclandscapers.co.uk/" target="_blank">TLC Landscaping</a> - Professional landscaping services and garden design</li>
+                </ul>
+                <p>
+                    This diverse business background gives Ruaraidh and the TLC Business Solutions team a unique perspective on the challenges faced by service businesses in various industries. This experience informs our approach to business automation, ensuring that our solutions are practical, effective, and tailored to the specific needs of each client.
+                </p>
+            </div>
+            
+            <div class="about-image fade-in">
+                <img src="{{ url_for('static', filename='images/founder_headshot_new.png') }}" alt="Ruaraidh Neish - Founder of TLC Business Solutions">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section style="background-color: #f9f9f9;">
+    <div class="container text-center">
+        <h2 class="fade-in">Our Values</h2>
+        
+        <div class="feature-grid" style="margin-top: 3rem;">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Partnership</h3>
+                <p>We view ourselves as partners in your success, not just service providers. We're invested in seeing your business thrive and grow through the solutions we implement.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Practicality</h3>
+                <p>We focus on practical, real-world solutions that deliver tangible benefits, not theoretical improvements or unnecessary complexity.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Results</h3>
+                <p>We measure our work by the concrete improvements it brings to your business - time saved, revenue increased, and stress reduced.</p>
+            </div>
+            
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>Integrity</h3>
+                <p>We believe in honest communication, fair pricing, and delivering on our promises. No surprises, no hidden fees, no cutting corners.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="fade-in">Let's Work Together</h2>
+            <p class="fade-in">
+                Ready to transform your service business with automation that actually works? We'd love to learn about your business and explore how we can help.
+            </p>
+            <a href="{{ url_for('contact') }}" class="btn btn-primary fade-in">Contact Us Today</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
