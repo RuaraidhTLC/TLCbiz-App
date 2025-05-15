@@ -27,6 +27,14 @@ def index():
         logging.exception("Failed to render index.html")
         abort(500)
 
+@app.route('/features')
+def features():
+    try:
+        return render_template('features.html')
+    except Exception as e:
+        logging.exception("Failed to render features.html")
+        abort(500)
+
 @app.errorhandler(404)
 def page_not_found(e):
     return "Page not found.", 404
