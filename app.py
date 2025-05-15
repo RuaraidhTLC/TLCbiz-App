@@ -20,7 +20,7 @@ def inject_now():
     return {'now': datetime.datetime.now()}
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
